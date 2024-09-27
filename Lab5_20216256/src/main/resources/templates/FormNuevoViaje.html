@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+          crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+<div class>
+</div>
+<div id="content">
+    <main>
+        <!-- Contenido --><!DOCTYPE html>
+        <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+            <title>Nuevo Transportista</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+                  crossorigin="anonymous">
+        </head>
+        <body>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script>
+        </body>
+        </html>
+        <div class="page-header text-center">
+            <h2 style="text-align: center;">Nuevo Viaje</h2>
+        </div>
+        <div class="container-fluid">
+            <form method="POST" th:action="@{/guardarViaje}">
+
+
+                <div class="mb-3">
+                    <label for="puntoRecojo" class="form-label">Punto de recojo:</label>
+                    <input type="text" id="puntoRecojo" name="puntoRecojo" class="form-control" required/>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="cantPersonas" class="form-label">Cantidad de personas:</label>
+                    <input type="number" id="cantPersonas" name="cantPersonas" class="form-control" required/>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="cantPerros" class="form-label">Cantidad de perros:</label>
+                    <input type="number" id="cantPerros" name="cantPerros" class="form-control"/>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="persona" class="form-label">Seleccione el titular del viaje (Persona):</label>
+                    <select id="persona" name="Idpersona" class="form-control" required>
+                        <option value="" disabled selected>Seleccionar persona</option>
+                        <option th:each="persona : ${personas}" th:value="${persona.getIdPersona()}" th:text="${persona.getNombre()}"></option>
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="lugar" class="form-label">Seleccione el destino del viaje (Lugar):</label>
+                    <select id="lugar" name="Idlugares" class="form-control" required>
+                        <option value="" disabled selected>Seleccionar lugar</option>
+                        <option th:each="lugar : ${lugares}" th:value="${lugar.getIdLugares()}" th:text="${lugar.getNombreLugar()}"></option>
+                    </select>
+                </div>
+
+                <a th:href="@{/ListarViajes}" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+</html>
